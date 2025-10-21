@@ -25,7 +25,7 @@
     "sample"
   ],
   "author": "SCP Contributors",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "dependencies": {
     "hono": "^4.6.0"
   },

@@ -560,7 +560,7 @@ This is a demo/example server. Feel free to fork and customize for your needs.
 
 ## License
 
-Apache-2.0
+MIT License - see [LICENSE](LICENSE) file for details
 
 ## Understanding the Protocol
 
