@@ -1,0 +1,36 @@
+{
+  "name": "@scp/remote-server",
+  "version": "0.1.0",
+  "description": "Remote SCP server on Cloudflare Workers",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "setup": "./setup.sh",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:production": "wrangler deploy --env production",
+    "tail": "wrangler tail",
+    "d1:create": "wrangler d1 create scp-oauth-local",
+    "d1:migrate": "wrangler d1 migrations apply scp-oauth-local --local",
+    "d1:migrate:prod": "wrangler d1 migrations apply scp-oauth-local --remote",
+    "kv:create": "npm run kv:create:auth && npm run kv:create:magic",
+    "kv:create:auth": "wrangler kv:namespace create AUTH_REQUESTS",
+    "kv:create:magic": "wrangler kv:namespace create MAGIC_LINK_TOKENS"
+  },
+  "keywords": [
+    "scp",
+    "shopper-context-protocol",
+    "cloudflare-workers",
+    "demo",
+    "sample"
+  ],
+  "author": "SCP Contributors",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "hono": "^4.6.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240925.0",
+    "wrangler": "^3.78.0"
+  }
+}

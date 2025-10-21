@@ -1,0 +1,27 @@
+# Git attributes file
+# Ensures consistent line endings across platforms
+
+# Auto detect text files and normalize line endings to LF
+* text=auto
+
+# Shell scripts should always use LF
+*.sh text eol=lf
+
+# Explicitly declare text files
+*.ts text
+*.js text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+*.toml text
+*.sql text
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+

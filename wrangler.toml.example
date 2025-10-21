@@ -1,0 +1,54 @@
+name = "scp-remote-server"
+main = "src/index.ts"
+compatibility_date = "2024-09-01"
+
+# Development environment
+[env.development]
+vars = { ENVIRONMENT = "development", PUBLIC_URL = "http://localhost:8787" }
+
+# Production environment
+[env.production]
+vars = { ENVIRONMENT = "production", PUBLIC_URL = "https://your-domain.com", JWT_SECRET="change-in-production", EMAIL_FROM="auth@yourdomain.com" }
+
+# D1 Database bindings (OAuth state only)
+# Run: npx wrangler d1 create scp-oauth-local
+# Then add the database_id here
+[[d1_databases]]
+binding = "DB"
+database_name = "scp-oauth-local"
+database_id = "YOUR_DATABASE_ID_HERE"
+
+# KV Namespaces
+# Run: npx wrangler kv:namespace create AUTH_REQUESTS
+# Then add the id here
+[[kv_namespaces]]
+binding = "AUTH_REQUESTS"
+id = "YOUR_AUTH_REQUESTS_KV_ID_HERE"
+
+# Run: npx wrangler kv:namespace create MAGIC_LINK_TOKENS
+# Then add the id here
+[[kv_namespaces]]
+binding = "MAGIC_LINK_TOKENS"
+id = "YOUR_MAGIC_LINK_TOKENS_KV_ID_HERE"
+
+
+# Production environment resources (create these separately)
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "scp-oauth-production"
+database_id = "YOUR_PRODUCTION_DATABASE_ID_HERE"
+
+[[env.production.kv_namespaces]]
+binding = "AUTH_REQUESTS"
+id = "YOUR_PRODUCTION_AUTH_REQUESTS_KV_ID_HERE"
+
+[[env.production.kv_namespaces]]
+binding = "MAGIC_LINK_TOKENS"
+id = "YOUR_PRODUCTION_MAGIC_LINK_TOKENS_KV_ID_HERE"
+
+# Secrets (set via: npx wrangler secret put SECRET_NAME)
+# - JWT_SECRET (for signing access tokens)
+# - RESEND_API_KEY (optional - for sending magic link emails, if not set will just log link)
+# - EMAIL_FROM (optional - sender email address, defaults to 'auth@shoppercontextprotocol.com')
+# - PUBLIC_URL (base URL for magic links, set in vars for dev, secret for prod)
+

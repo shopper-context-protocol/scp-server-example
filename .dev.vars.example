@@ -1,0 +1,17 @@
+# Environment variables for local development
+# Copy this file to .dev.vars and fill in your values
+
+# JWT secret for signing access tokens (generate a strong random string)
+JWT_SECRET=local-test-secret-change-in-production-12345
+
+# Public URL where the server will be accessible
+PUBLIC_URL=http://localhost:8787
+
+# Resend API key for sending magic link emails (optional)
+# Get yours at https://resend.com
+# If not set, magic links will be logged to console instead
+RESEND_API_KEY=your-resend-api-key-here
+
+# Email address to send magic links from (optional)
+EMAIL_FROM=auth@yourdomain.com
+

@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Wrangler (Cloudflare Workers)
+.wrangler/
+.wrangler-state/
+.dev.vars
+wrangler.toml
+wrangler.toml.local
+
+# Build output
+dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Secrets and config (never commit)
+.dev.vars
+wrangler.toml
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+.tmp/
+
+# Local D1 database
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
